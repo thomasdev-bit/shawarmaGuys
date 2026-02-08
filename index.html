@@ -350,91 +350,6 @@
         margin-top: 30px;
       }
 
-      /* Mobile App Section */
-      .mobile-app {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color) 0%,
-          #700000 100%
-        );
-        color: white;
-      }
-
-      .app-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-      }
-
-      .app-text h2 {
-        color: white;
-        margin-bottom: 20px;
-      }
-
-      .app-text h2:after {
-        background-color: var(--accent-color);
-      }
-
-      .app-text p {
-        color: rgba(255, 255, 255, 0.9);
-        margin-bottom: 30px;
-      }
-
-      .app-stores {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-      }
-
-      .app-store-btn {
-        display: flex;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.2);
-        border-radius: var(--border-radius);
-        padding: 15px 25px;
-        transition: var(--transition);
-        color: white;
-      }
-
-      .app-store-btn:hover {
-        background-color: white;
-        color: var(--primary-color);
-        transform: translateY(-3px);
-      }
-
-      .app-store-btn i {
-        font-size: 2rem;
-        margin-right: 12px;
-      }
-
-      .app-store-text {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .app-store-text span:first-child {
-        font-size: 0.8rem;
-        opacity: 0.9;
-      }
-
-      .app-store-text span:last-child {
-        font-size: 1.2rem;
-        font-weight: 600;
-      }
-
-      .app-image {
-        display: flex;
-        justify-content: center;
-      }
-
-      .app-image img {
-        max-width: 100%;
-        height: auto;
-        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-      }
-
       /* Locations Section */
       .locations {
         background-color: var(--light-color);
@@ -602,6 +517,126 @@
         margin: 0 auto 40px;
       }
 
+      /* Mobile App Section */
+      .mobile-app {
+        background-color: white;
+        color: var(--text-color);
+      }
+
+      .app-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .app-text h2 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+      }
+
+      .app-text h2:after {
+        background-color: var(--primary-color);
+      }
+
+      .app-text p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+      }
+
+      .app-stores {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .app-store-btn {
+        display: flex;
+        align-items: center;
+        background-color: #f8f8f8;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 15px 25px;
+        transition: var(--transition);
+        color: var(--text-color);
+      }
+
+      .app-store-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+
+      /* Apple App Store Button */
+      .app-store-btn:first-child:hover {
+        background-color: #000;
+        color: white;
+      }
+
+      .app-store-btn:first-child:hover .app-store-text span {
+        color: white;
+      }
+
+      /* Google Play Button */
+      .app-store-btn:last-child:hover {
+        background-color: #0f9d58; /* Google Play Green */
+        color: white;
+      }
+
+      .app-store-btn:last-child:hover .app-store-text span {
+        color: white;
+      }
+
+      .app-store-btn i {
+        font-size: 2rem;
+        margin-right: 12px;
+      }
+
+      /* Apple Icon - Black by default */
+      .app-store-btn:first-child i {
+        color: #000;
+      }
+
+      /* Google Play Icon - Green by default */
+      .app-store-btn:last-child i {
+        color: #0f9d58;
+      }
+
+      /* Change icon colors on hover */
+      .app-store-btn:first-child:hover i {
+        color: white;
+      }
+
+      .app-store-btn:last-child:hover i {
+        color: white;
+      }
+
+      .app-store-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .app-store-text span:first-child {
+        font-size: 0.8rem;
+        opacity: 0.8;
+      }
+
+      .app-store-text span:last-child {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .app-image {
+        display: flex;
+        justify-content: center;
+      }
+
+      .app-image img {
+        max-width: 100%;
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+        border-radius: 12px;
+      }
+
       /* Footer */
       footer {
         background-color: var(--dark-color);
@@ -688,6 +723,10 @@
 
       /* Responsive Styles */
       @media (max-width: 1100px) {
+        .header-container {
+          padding: 12px 10px;
+        }
+
         .nav-links {
           margin-right: 10px;
         }
@@ -703,6 +742,10 @@
       }
 
       @media (max-width: 992px) {
+        .header-container {
+          padding: 12px 10px;
+        }
+
         h1 {
           font-size: 3rem;
         }
@@ -735,9 +778,17 @@
         .app-image {
           order: -1;
         }
+
+        .app-image img {
+          max-width: 80%;
+        }
       }
 
       @media (max-width: 768px) {
+        .header-container {
+          padding: 12px 10px;
+        }
+
         .hero h1 {
           font-size: 2.7rem;
         }
@@ -780,6 +831,10 @@
           width: 100%;
           justify-content: center;
         }
+
+        .app-image img {
+          max-width: 100%;
+        }
       }
 
       @media (max-width: 576px) {
@@ -805,7 +860,7 @@
         }
 
         .header-container {
-          padding: 12px 0;
+          padding: 12px 10px;
         }
 
         .logo h1 {
@@ -880,44 +935,6 @@
           <a href="#" class="btn btn-outline">Order Takeout</a>
           <a href="#" class="btn">Order Delivery</a>
           <a href="#catering" class="btn btn-outline">Catering Services</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mobile App Section -->
-    <section class="mobile-app" id="mobile-app">
-      <div class="container">
-        <div class="app-content">
-          <div class="app-text">
-            <h2>Download Our Mobile App</h2>
-            <p>
-              Get exclusive deals, order ahead, earn rewards, and track your
-              delivery with our Shawarma Guys mobile app. Order your favorite
-              Middle Eastern dishes with just a few taps!
-            </p>
-            <div class="app-stores">
-              <a href="#" class="app-store-btn">
-                <i class="fab fa-apple"></i>
-                <div class="app-store-text">
-                  <span>Download on the</span>
-                  <span>App Store</span>
-                </div>
-              </a>
-              <a href="#" class="app-store-btn">
-                <i class="fab fa-google-play"></i>
-                <div class="app-store-text">
-                  <span>Get it on</span>
-                  <span>Google Play</span>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="app-image">
-            <img
-              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-              alt="Shawarma Guys Mobile App"
-            />
-          </div>
         </div>
       </div>
     </section>
@@ -1145,6 +1162,44 @@
             more.
           </p>
           <a href="#" class="btn btn-secondary">Request Catering Quote</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile App Section -->
+    <section class="mobile-app" id="mobile-app">
+      <div class="container">
+        <div class="app-content">
+          <div class="app-text">
+            <h2>Download Our Mobile App</h2>
+            <p>
+              Get exclusive deals, order ahead, earn rewards, and track your
+              delivery with our Shawarma Guys mobile app. Order your favorite
+              Middle Eastern dishes with just a few taps!
+            </p>
+            <div class="app-stores">
+              <a href="#" class="app-store-btn">
+                <i class="fab fa-apple"></i>
+                <div class="app-store-text">
+                  <span>Download on the</span>
+                  <span>App Store</span>
+                </div>
+              </a>
+              <a href="#" class="app-store-btn">
+                <i class="fab fa-google-play"></i>
+                <div class="app-store-text">
+                  <span>Get it on</span>
+                  <span>Google Play</span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="app-image">
+            <img
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="Shawarma Guys Mobile App"
+            />
+          </div>
         </div>
       </div>
     </section>
