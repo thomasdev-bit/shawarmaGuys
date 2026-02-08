@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shawarma Guys | Authentic Middle Eastern Cuisine</title>
@@ -16,11 +16,11 @@
     />
     <style>
       :root {
-        --primary-color: #8B0000; /* Deep Red from your brand image */
+        --primary-color: #8b0000; /* Deep Red from your brand image */
         --secondary-color: #333333; /* Dark Gray from text */
-        --accent-color: #D4AF37; /* Gold/Yellow from rewards star */
-        --light-color: #F5F5F5; /* Light Gray background */
-        --dark-color: #1A1A1A; /* Almost Black */
+        --accent-color: #d4af37; /* Gold/Yellow from rewards star */
+        --light-color: #f5f5f5; /* Light Gray background */
+        --dark-color: #1a1a1a; /* Almost Black */
         --text-color: #333333; /* Dark Gray text */
         --text-light: #666666; /* Medium Gray */
         --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -352,7 +352,11 @@
 
       /* Mobile App Section */
       .mobile-app {
-        background: linear-gradient(135deg, var(--primary-color) 0%, #700000 100%);
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          #700000 100%
+        );
         color: white;
       }
 
@@ -809,8 +813,8 @@
         }
       }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header & Navigation -->
     <header id="header">
       <div class="container header-container">
@@ -887,7 +891,9 @@
           <div class="app-text">
             <h2>Download Our Mobile App</h2>
             <p>
-              Get exclusive deals, order ahead, earn rewards, and track your delivery with our Shawarma Guys mobile app. Order your favorite Middle Eastern dishes with just a few taps!
+              Get exclusive deals, order ahead, earn rewards, and track your
+              delivery with our Shawarma Guys mobile app. Order your favorite
+              Middle Eastern dishes with just a few taps!
             </p>
             <div class="app-stores">
               <a href="#" class="app-store-btn">
@@ -907,7 +913,10 @@
             </div>
           </div>
           <div class="app-image">
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Shawarma Guys Mobile App">
+            <img
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+              alt="Shawarma Guys Mobile App"
+            />
           </div>
         </div>
       </div>
@@ -1217,7 +1226,7 @@
       mobileMenuBtn.addEventListener("click", (e) => {
         e.stopPropagation();
         mobileNav.classList.toggle("active");
-        
+
         // Change icon
         const icon = mobileMenuBtn.querySelector("i");
         if (mobileNav.classList.contains("active")) {
@@ -1241,7 +1250,10 @@
 
       // Close mobile menu when clicking outside
       document.addEventListener("click", (e) => {
-        if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        if (
+          !mobileNav.contains(e.target) &&
+          !mobileMenuBtn.contains(e.target)
+        ) {
           mobileNav.classList.remove("active");
           const icon = mobileMenuBtn.querySelector("i");
           icon.classList.remove("fa-times");
@@ -1277,5 +1289,5 @@
         }
       });
     </script>
-</body>
+  </body>
 </html>
