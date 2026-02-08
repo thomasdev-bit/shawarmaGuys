@@ -59,12 +59,12 @@
 
       h2 {
         font-size: 2.5rem;
-        color: var(--secondary-color);
+        color: brown;
         position: relative;
         display: inline-block;
       }
 
-      h2:after {
+      /* h2:after {
         content: "";
         position: absolute;
         width: 60%;
@@ -72,7 +72,7 @@
         background-color: var(--primary-color);
         bottom: -10px;
         left: 0;
-      }
+      } */
 
       h3 {
         font-size: 1.8rem;
@@ -148,7 +148,7 @@
       }
 
       section {
-        padding: 80px 0;
+        padding: 30px 0;
       }
 
       .text-center {
@@ -175,34 +175,26 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 0;
+        padding: 5px 0;
       }
 
+      /* Logo with Image */
       .logo {
         display: flex;
         align-items: center;
+        gap: 12px;
       }
 
-      .logo h1 {
-        font-size: 1.8rem;
-        margin-bottom: 0;
-        color: var(--primary-color);
-      }
-
-      .logo span {
-        color: var(--secondary-color);
-      }
-
-      .logo-icon {
-        font-size: 1.6rem;
-        margin-right: 10px;
-        color: var(--primary-color);
+      .logo-img {
+        height: 80px;
+        width: 100px;
       }
 
       /* Main Navigation */
       .nav-main {
         display: flex;
         align-items: center;
+        gap: 20px;
       }
 
       .nav-links {
@@ -247,6 +239,92 @@
         font-size: 0.85rem;
       }
 
+      /* Order Button Dropdown */
+      .order-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .order-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+
+      .order-btn:hover {
+        background-color: #700000;
+      }
+
+      .order-btn i {
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+      }
+
+      .order-dropdown.active .order-btn i {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        padding: 10px 0;
+        margin-top: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--transition);
+        z-index: 1000;
+      }
+
+      .order-dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        color: var(--text-color);
+        transition: var(--transition);
+        border-left: 3px solid transparent;
+      }
+
+      .dropdown-menu a:hover {
+        background-color: #f8f8f8;
+        color: var(--primary-color);
+        border-left-color: var(--primary-color);
+      }
+
+      .dropdown-menu a i {
+        color: var(--primary-color);
+        width: 20px;
+        text-align: center;
+      }
+
+      .dropdown-divider {
+        height: 1px;
+        background-color: #eee;
+        margin: 5px 0;
+      }
+
       /* Mobile Menu Toggle */
       .mobile-menu-btn {
         display: none;
@@ -258,26 +336,26 @@
         margin-left: 15px;
       }
 
-      /* Mobile Navigation - FIXED POSITIONING */
+      /* Mobile Navigation */
       .mobile-nav {
         position: fixed;
-        top: 70px;
+        top: 64px;
         left: 0;
         width: 100%;
         background-color: white;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        transform: translateY(-100%);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 30px 25px;
+        transform: translateX(-100%);
         opacity: 0;
         visibility: hidden;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         z-index: 999;
-        max-height: calc(100vh - 70px);
+        max-height: calc(100vh - 80px);
         overflow-y: auto;
       }
 
       .mobile-nav.active {
-        transform: translateY(0);
+        transform: translateX(0);
         opacity: 1;
         visibility: visible;
       }
@@ -293,7 +371,7 @@
 
       .mobile-nav-links li a {
         display: block;
-        padding: 12px 0;
+        padding: 15px 0;
         font-weight: 500;
         border-bottom: 1px solid #eee;
         color: var(--secondary-color);
@@ -307,11 +385,55 @@
         margin-top: 20px;
       }
 
-      .mobile-nav-actions .btn {
+      .mobile-order-dropdown {
+        margin-bottom: 20px;
+      }
+
+      .mobile-order-btn {
         width: 100%;
-        text-align: center;
-        padding: 14px;
-        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 16px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .mobile-order-options {
+        background-color: #f9f9f9;
+        border-radius: var(--border-radius);
+        padding: 15px;
+        margin-top: 10px;
+        display: none;
+      }
+
+      .mobile-order-options.active {
+        display: block;
+      }
+
+      .mobile-order-options a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 15px;
+        color: var(--text-color);
+        border-bottom: 1px solid #eee;
+        transition: var(--transition);
+      }
+
+      .mobile-order-options a:last-child {
+        border-bottom: none;
+      }
+
+      .mobile-order-options a:hover {
+        color: var(--primary-color);
+        background-color: white;
       }
 
       /* Hero Section */
@@ -813,6 +935,16 @@
           padding: 60px 0;
         }
 
+        .logo-text h1 {
+          font-size: 1.5rem;
+        }
+
+        .logo-img,
+        .logo-img-placeholder {
+          height: 40px;
+          width: 40px;
+        }
+
         .mobile-nav {
           padding: 30px 20px;
           box-sizing: border-box;
@@ -863,6 +995,14 @@
           padding: 12px 10px;
         }
 
+        .logo-text h1 {
+          font-size: 1.3rem;
+        }
+
+        .logo-text span {
+          font-size: 0.8rem;
+        }
+
         .logo h1 {
           font-size: 1.6rem;
         }
@@ -874,10 +1014,8 @@
     <header id="header">
       <div class="container header-container">
         <div class="logo">
-          <div class="logo-icon">
-            <i class="fas fa-utensils"></i>
-          </div>
-          <h1>Shawarma <span>Guys</span></h1>
+          <div class="logo-icon"></div>
+          <img class="logo-img" src="img/sglogonbg.png" alt="SG Logo" />
         </div>
 
         <!-- Desktop Navigation -->
@@ -890,22 +1028,38 @@
             <li><a href="#catering">Catering</a></li>
           </ul>
 
-          <!-- Desktop Order Buttons -->
-          <div class="nav-actions">
-            <a href="#" class="btn btn-small">Order Takeout</a>
-            <a href="#" class="btn btn-small">Order Delivery</a>
-            <a href="#" class="btn btn-small btn-secondary">Catering</a>
+          <!-- Desktop Order Button with Dropdown -->
+          <div class="order-dropdown" id="orderDropdown">
+            <button class="order-btn">
+              <span>ORDER NOW</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-takeout-box"></i>
+                <span>Takeout</span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-truck"></i>
+                <span>Delivery</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">
+                <i class="fas fa-concierge-bell"></i>
+                <span>Catering</span>
+              </a>
+            </div>
           </div>
 
           <!-- Mobile Menu Toggle -->
-          <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>
 
       <!-- Mobile Navigation -->
-      <div class="mobile-nav" id="mobile-nav">
+      <div class="mobile-nav" id="mobileNav">
         <ul class="mobile-nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#locations">Locations</a></li>
@@ -914,11 +1068,28 @@
           <li><a href="#catering">Catering</a></li>
         </ul>
 
-        <!-- Mobile Order Buttons -->
+        <!-- Mobile Order Button with Dropdown -->
         <div class="mobile-nav-actions">
-          <a href="#" class="btn">Order Takeout</a>
-          <a href="#" class="btn">Order Delivery</a>
-          <a href="#" class="btn btn-secondary">Catering</a>
+          <div class="mobile-order-dropdown">
+            <button class="mobile-order-btn" id="mobileOrderBtn">
+              <span>ORDER NOW</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="mobile-order-options" id="mobileOrderOptions">
+              <a href="#">
+                <i class="fas fa-takeout-box"></i>
+                <span>Takeout</span>
+              </a>
+              <a href="#">
+                <i class="fas fa-truck"></i>
+                <span>Delivery</span>
+              </a>
+              <a href="#">
+                <i class="fas fa-concierge-bell"></i>
+                <span>Catering</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -932,9 +1103,77 @@
           Eastern delicacies crafted with passion and premium ingredients.
         </p>
         <div class="hero-btns">
-          <a href="#" class="btn btn-outline">Order Takeout</a>
-          <a href="#" class="btn">Order Delivery</a>
-          <a href="#catering" class="btn btn-outline">Catering Services</a>
+          <a href="#" class="btn">Our Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Highlights -->
+    <section class="menu-highlights" id="menu">
+      <div class="container">
+        <div class="text-center">
+          <h2>Menu Highlights</h2>
+          <p>A taste of our most popular Middle Eastern delicacies.</p>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-img">
+              <img
+                src="https://images.unsplash.com/photo-1600320254374-ce2d1cce6ce8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Beef Shawarma"
+              />
+            </div>
+            <div class="menu-details">
+              <h3>Beef Shawarma</h3>
+              <p>
+                Thinly sliced marinated beef, slow-cooked on a vertical
+                rotisserie, served with fresh vegetables and our signature
+                garlic sauce.
+              </p>
+              <div class="menu-price">$12.99</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-img">
+              <img
+                src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Wagyu Kebab"
+              />
+            </div>
+            <div class="menu-details">
+              <h3>Wagyu Kebab</h3>
+              <p>
+                Premium Wagyu beef skewers, seasoned with Middle Eastern spices
+                and grilled to perfection. Served with rice and grilled
+                vegetables.
+              </p>
+              <div class="menu-price">$24.99</div>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <div class="menu-img">
+              <img
+                src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Falafel Wrap"
+              />
+            </div>
+            <div class="menu-details">
+              <h3>Falafel Wrap</h3>
+              <p>
+                Crispy falafel balls wrapped in warm pita bread with fresh
+                veggies, pickles, and our homemade tahini sauce. A vegetarian
+                favorite.
+              </p>
+              <div class="menu-price">$9.99</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 50px">
+          <a href="#" class="btn">View Full Menu</a>
         </div>
       </div>
     </section>
@@ -1017,76 +1256,6 @@
               <a href="#" class="btn" style="margin-top: 10px">Track Truck</a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Menu Highlights -->
-    <section class="menu-highlights" id="menu">
-      <div class="container">
-        <div class="text-center">
-          <h2>Menu Highlights</h2>
-          <p>A taste of our most popular Middle Eastern delicacies.</p>
-        </div>
-
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-img">
-              <img
-                src="https://images.unsplash.com/photo-1600320254374-ce2d1cce6ce8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                alt="Beef Shawarma"
-              />
-            </div>
-            <div class="menu-details">
-              <h3>Beef Shawarma</h3>
-              <p>
-                Thinly sliced marinated beef, slow-cooked on a vertical
-                rotisserie, served with fresh vegetables and our signature
-                garlic sauce.
-              </p>
-              <div class="menu-price">$12.99</div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-img">
-              <img
-                src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                alt="Wagyu Kebab"
-              />
-            </div>
-            <div class="menu-details">
-              <h3>Wagyu Kebab</h3>
-              <p>
-                Premium Wagyu beef skewers, seasoned with Middle Eastern spices
-                and grilled to perfection. Served with rice and grilled
-                vegetables.
-              </p>
-              <div class="menu-price">$24.99</div>
-            </div>
-          </div>
-
-          <div class="menu-item">
-            <div class="menu-img">
-              <img
-                src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                alt="Falafel Wrap"
-              />
-            </div>
-            <div class="menu-details">
-              <h3>Falafel Wrap</h3>
-              <p>
-                Crispy falafel balls wrapped in warm pita bread with fresh
-                veggies, pickles, and our homemade tahini sauce. A vegetarian
-                favorite.
-              </p>
-              <div class="menu-price">$9.99</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center" style="margin-top: 50px">
-          <a href="#" class="btn">View Full Menu</a>
         </div>
       </div>
     </section>
@@ -1272,10 +1441,27 @@
     </footer>
 
     <script>
+      // Desktop order dropdown functionality
+      const orderDropdown = document.getElementById("orderDropdown");
+      const orderBtn = orderDropdown.querySelector(".order-btn");
+
+      orderBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        orderDropdown.classList.toggle("active");
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        if (!orderDropdown.contains(e.target)) {
+          orderDropdown.classList.remove("active");
+        }
+      });
+
       // Mobile menu functionality
-      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-      const mobileNav = document.getElementById("mobile-nav");
-      const mobileMenuIcon = document.getElementById("mobile-menu-btn");
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      const mobileOrderBtn = document.getElementById("mobileOrderBtn");
+      const mobileOrderOptions = document.getElementById("mobileOrderOptions");
 
       // Toggle mobile menu
       mobileMenuBtn.addEventListener("click", (e) => {
@@ -1293,6 +1479,22 @@
         }
       });
 
+      // Toggle mobile order options
+      mobileOrderBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mobileOrderOptions.classList.toggle("active");
+
+        // Change icon
+        const icon = mobileOrderBtn.querySelector("i");
+        if (mobileOrderOptions.classList.contains("active")) {
+          icon.classList.remove("fa-chevron-down");
+          icon.classList.add("fa-chevron-up");
+        } else {
+          icon.classList.remove("fa-chevron-up");
+          icon.classList.add("fa-chevron-down");
+        }
+      });
+
       // Close mobile menu when clicking on a link
       document.querySelectorAll(".mobile-nav a").forEach((link) => {
         link.addEventListener("click", () => {
@@ -1300,6 +1502,12 @@
           const icon = mobileMenuBtn.querySelector("i");
           icon.classList.remove("fa-times");
           icon.classList.add("fa-bars");
+
+          // Close order options if open
+          mobileOrderOptions.classList.remove("active");
+          const orderIcon = mobileOrderBtn.querySelector("i");
+          orderIcon.classList.remove("fa-chevron-up");
+          orderIcon.classList.add("fa-chevron-down");
         });
       });
 
@@ -1314,6 +1522,17 @@
           icon.classList.remove("fa-times");
           icon.classList.add("fa-bars");
         }
+
+        // Close order options if clicking outside
+        if (
+          !mobileOrderBtn.contains(e.target) &&
+          !mobileOrderOptions.contains(e.target)
+        ) {
+          mobileOrderOptions.classList.remove("active");
+          const orderIcon = mobileOrderBtn.querySelector("i");
+          orderIcon.classList.remove("fa-chevron-up");
+          orderIcon.classList.add("fa-chevron-down");
+        }
       });
 
       // Smooth scrolling for anchor links
@@ -1327,23 +1546,39 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             window.scrollTo({
-              top: targetElement.offsetTop - 70,
+              top: targetElement.offsetTop - 80,
               behavior: "smooth",
             });
+
+            // Close mobile menu after clicking
+            if (window.innerWidth <= 992) {
+              mobileNav.classList.remove("active");
+              const icon = mobileMenuBtn.querySelector("i");
+              icon.classList.remove("fa-times");
+              icon.classList.add("fa-bars");
+            }
           }
         });
       });
 
       // Close mobile menu on escape key
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && mobileNav.classList.contains("active")) {
-          mobileNav.classList.remove("active");
-          const icon = mobileMenuBtn.querySelector("i");
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
+        if (e.key === "Escape") {
+          if (mobileNav.classList.contains("active")) {
+            mobileNav.classList.remove("active");
+            const icon = mobileMenuBtn.querySelector("i");
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+
+          if (mobileOrderOptions.classList.contains("active")) {
+            mobileOrderOptions.classList.remove("active");
+            const orderIcon = mobileOrderBtn.querySelector("i");
+            orderIcon.classList.remove("fa-chevron-up");
+            orderIcon.classList.add("fa-chevron-down");
+          }
         }
       });
     </script>
   </body>
 </html>
-
